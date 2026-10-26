@@ -1,0 +1,221 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNcgwiGLpipeR3Z2GeAhjuU",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Samuel081222/LAB-Python-01/blob/main/EJERCICIO%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "EJERCICIO 1"
+      ],
+      "metadata": {
+        "id": "aP1Qr_Vib-To"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "XeLaNB3PcCRQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ztJVkY4mLkfq"
+      },
+      "outputs": [],
+      "source": [
+        "\n",
+        "#1.\n",
+        "\n",
+        "# Estado inicial\n",
+        "saldo = float(input(\"Ingrese su saldo de cuenta: \"))     # Saldo de la cuenta\n",
+        "deposito = float(input(\"Ingrese el monto de dinero que quiere depositar en su cuenta: \"))   # Monto a depositar\n",
+        "retiro = float(input(\"Ingrese el monto de dinero que desea retirar de su cuenta: \"))     # Monto a retirar\n",
+        "\n",
+        "# Actualización del estado\n",
+        "saldo = saldo + deposito   # Se deposita dinero\n",
+        "saldo = saldo - retiro     # Se retira dinero\n",
+        "\n",
+        "# Salida del estado final\n",
+        "print(\"Saldo final de la cuenta:\", saldo)\n",
+        "\n",
+        "interes = 0.02\n",
+        "\n",
+        "saldo_final = (saldo*interes)\n",
+        "\n",
+        "print(f\"Saldo final con interés: ${saldo_final}\")\n",
+        "\n",
+        "# El estado inicial del programa pide tres entradas: saldo, deposito y retiro, con base en esa informacion el programa realiza calcu"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#2\n",
+        "# Lista inicial de temperaturas en °C\n",
+        "temperaturas = [22.5, 23.0, 21.8, 24.3, 25.1]\n",
+        "temperaturas.append(22.5)\n",
+        "temperaturas.pop(0)\n",
+        "temperaturas.insert(1, 20.0)\n",
+        "print(sorted(temperaturas))\n",
+        "diferencia = max(temperaturas) - min(temperaturas)\n",
+        "print(diferencia)\n",
+        "promedio = sum(temperaturas) / len(temperaturas)\n",
+        "print(promedio)\n",
+        "print(\"indice de 22.5\",temperaturas.index(22.5))\n",
+        "print(temperaturas[1:4])\n",
+        "print(temperaturas[:3])"
+      ],
+      "metadata": {
+        "id": "w8E8qXLdcD0t"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#3.\n",
+        "inventario = [\n",
+        "    {\"nombre\": \"Pan\", \"precio\": 1500, \"stock\": 30},\n",
+        "    {\"nombre\": \"Leche\", \"precio\": 3500, \"stock\": 15},\n",
+        "    {\"nombre\": \"Café\", \"precio\": 8000, \"stock\": 10},\n",
+        "]\n",
+        "\n",
+        "\n",
+        "print(f\"1. El nombre del primer producto es: {inventario[0]['nombre']}\")\n",
+        "\n",
+        "inventario.append({\"nombre\": \"Huevos\", \"precio\": 6000, \"stock\": 20})\n",
+        "print(\"2. Producto agregado. Inventario actual:\", inventario[3])\n",
+        "\n",
+        "for producto in inventario:\n",
+        "    if producto[\"nombre\"] == \"Leche\":\n",
+        "        producto[\"stock\"] -= 2\n",
+        "print(f\"3. Stock de Leche actualizado: {inventario[1]['stock']} unidades\")\n",
+        "\n",
+        "valor_total = sum(p[\"precio\"] * p[\"stock\"] for p in inventario)\n",
+        "print(f\"4. El valor total del inventario es: {valor_total}\")\n",
+        "\n",
+        "print(\"5. Productos con stock menor a 10:\")\n",
+        "menores_a_10 = [p for p in inventario if p[\"stock\"] < 10]\n",
+        "if menores_a_10:\n",
+        "    for p in menores_a_10:\n",
+        "        print(f\"   - {p['nombre']} (Stock: {p['stock']})\")\n",
+        "else:\n",
+        "    print(\"   No hay productos con stock menor a 10.\")\n",
+        "\n",
+        "for producto in inventario:\n",
+        "    producto[\"precio\"] = round(producto[\"precio\"] * 1.10, 2)\n",
+        "print(\"6 y 7. Precios aumentados un 10% y redondeados:\", inventario)\n",
+        "\n",
+        "nombre_buscado = \"Café\"\n",
+        "encontrado = False\n",
+        "\n",
+        "for producto in inventario:\n",
+        "    if not encontrado:\n",
+        "      if producto[\"nombre\"].lower()==nombre_buscado.lower():\n",
+        "        print(f\"8. producto encontrado {producto}\")\n",
+        "        encontrado = True\n",
+        "if not encontrado:\n",
+        "  print(f\"8. El producto ´{nombre_buscado}` no se encuentra en el inventario.\")\n",
+        "inventario[0][\"stock\"] = 0\n",
+        "\n",
+        "inventario = [p for p in inventario if p[\"stock\"] > 0]\n",
+        "print(\"9. Inventario tras eliminar productos con stock 0:\", inventario)\n",
+        "\n",
+        "inventario.sort(key=lambda x: x[\"precio\"])\n",
+        "print(\"10. Inventario ordenado por precio ascendente:\")\n",
+        "for p in inventario:\n",
+        "    print(f\"    - {p['nombre']}: ${p['precio']} (Stock: {p['stock']})\")"
+      ],
+      "metadata": {
+        "id": "omXdcxKjcECh"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#4.\n",
+        "\n",
+        "# Tupla: coordenadas (x, y)\n",
+        "punto = (3, 7)\n",
+        "print(\"Punto:\", punto)\n",
+        "\n",
+        "# Tupla: rectangulo (ancho, alto)\n",
+        "ancho = 3\n",
+        "alto = 4\n",
+        "\n",
+        "rectangulo = (ancho, alto)\n",
+        "\n",
+        "area = ancho*alto\n",
+        "\n",
+        "perimetro = (ancho*2)+(alto*2)\n",
+        "\n",
+        "print:(f\"El area del rectagulo es: {area}\")\n",
+        "print:(f\"El perimetro del rectagulo es: {perimetro}\")"
+      ],
+      "metadata": {
+        "id": "vl1TJ_aUcEPA"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#5.\n",
+        "biblioteca = {\n",
+        "    \"libros\": [\n",
+        "        {\"titulo\": \"1984\", \"autor\": \"George Orwell\", \"prestado\": False},\n",
+        "        {\"titulo\": \"El Principito\", \"autor\": \"Antoine de Saint-Exupéry\", \"prestado\": True},\n",
+        "    ],\n",
+        "    \"usuarios\": [\"Ana\", \"Luis\", \"María\"]\n",
+        "}\n",
+        "prestados = sum(1 for libro in biblioteca [\"libros\"] if libro [\"prestado\"])\n",
+        "disponibles = sum(1 for libro in biblioteca [\"libros\"] if not libro [\"prestado\"])\n",
+        "print(f\"Libros prestados: {prestados}\")\n",
+        "print(f\"Libros disponibles: {disponibles}\")\n",
+        "biblioteca[\"libros\"].append({\"titulo\":\"Cien años de soledad\",\"autor\": \"Gabriel Garcia Marquez\", \"prestado\": False })\n",
+        "for libro in biblioteca[\"libros\"]:\n",
+        "  if libro[\"titulo\"] == \"1984\":\n",
+        "    libro[\"prestado\"] = True\n",
+        "print(biblioteca)"
+      ],
+      "metadata": {
+        "id": "NDhOe1rTcEcR"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
